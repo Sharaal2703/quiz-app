@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.quizapp.controller.StudentController">
+   <children>
+      <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0" spacing="20.0" style="-fx-background-color: #f0f0f0;">
+         <children>
+            <Text text="Student Dashboard">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Text>
+            <Region HBox.hgrow="ALWAYS" />
+            <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#handleLogoutAction" text="Logout" />
+         </children>
+         <padding>
+            <Insets left="10.0" right="10.0" />
+         </padding>
+      </HBox>
+      <TabPane prefHeight="550.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Available Quizzes">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0" spacing="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Button fx:id="takeQuizButton" mnemonicParsing="false" onAction="#handleTakeQuizAction" text="Take Quiz" />
+                           </children>
+                           <padding>
+                              <Insets left="10.0" right="10.0" />
+                           </padding>
+                        </HBox>
+                        <TableView fx:id="availableQuizTable" prefHeight="500.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+                          <columns>
+                            <TableColumn fx:id="availableIdColumn" prefWidth="75.0" text="ID" />
+                            <TableColumn fx:id="availableTitleColumn" prefWidth="200.0" text="Title" />
+                            <TableColumn fx:id="availableDescriptionColumn" prefWidth="300.0" text="Description" />
+                            <TableColumn fx:id="availableTimeLimitColumn" prefWidth="100.0" text="Time Limit (min)" />
+                          </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="My Attempts">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0" spacing="10.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Button fx:id="viewResultsButton" mnemonicParsing="false" onAction="#handleViewResultsAction" text="View Results" />
+                           </children>
+                           <padding>
+                              <Insets left="10.0" right="10.0" />
+                           </padding>
+                        </HBox>
+                        <TableView fx:id="attemptTable" prefHeight="500.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+                          <columns>
+                            <TableColumn fx:id="attemptIdColumn" prefWidth="75.0" text="Attempt ID" />
+                            <TableColumn fx:id="attemptQuizTitleColumn" prefWidth="200.0" text="Quiz Title" />
+                            <TableColumn fx:id="attemptStartTimeColumn" prefWidth="150.0" text="Start Time" />
+                            <TableColumn fx:id="attemptEndTimeColumn" prefWidth="150.0" text="End Time" />
+                            <TableColumn fx:id="attemptScoreColumn" prefWidth="100.0" text="Score (%)" />
+                          </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</VBox>
